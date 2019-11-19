@@ -10,6 +10,15 @@ password = input("password")
 password = str(password)
 client.send(name, password)
 data = client.recv(1024)
+if data == "wrong name or password, try again":
+    while data == "wrong name or password, try again":
+        print("please enter username and password")
+        name = input("username")
+        name = str(name)
+        password = input("password")
+        password = str(password)
+        client.send(name, password)
+        data = client.recv(1024)
+# now the client will recive and print all the data from the server, remmember to close socket in the end #
 
 client.close()
-print from_server
